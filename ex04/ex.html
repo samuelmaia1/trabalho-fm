@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <main class="principal">
+        <form class="form d-flex flex-column gap-3">
+            <div class="container-input">
+                <label for="">Insira o capital inicial: </label>
+                <input type="number" name="" id="capital" class="form-control">
+            </div>
+            <div class="container-input">
+                <label for="">Insira a taxa do Investimento (em %): </label>
+                <input type="number" name="" id="taxa-investimento" class="form-control">
+            </div>
+            <div class="container-input">
+                <label for="">Insira a taxa do IPCA (em %): </label>
+                <input type="number" name="" id="taxa-ipca" class="form-control">
+            </div>
+            <div class="container-input">
+                <label for="">Unidade de tempo: </label>
+                <select class="form-select" aria-label="Default select example" id="meses">
+                    <option value="12" selected>12 Meses</option>
+                    <option value="24">24 Meses</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Emitir gráfico</button>
+        </form>
+        <div class="container-grafico">
+            <canvas class="grafico">
+            </canvas>
+        </div>
+
+        <div class="resultados">
+            <p id="aplicacao-final"></p>
+            <p id="ipca-final"></p>
+            <p id="lucro-final"></p>
+        </div>
+
+    </main>
+</body>
+
+    <script src="script.js"></script>
+
+</html>

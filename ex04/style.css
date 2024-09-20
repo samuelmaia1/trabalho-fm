@@ -1,0 +1,14 @@
+.form{
+    width: 20rem;
+}
+
+.container-grafico{
+    width: 50rem;
+}
+
+.principal{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
