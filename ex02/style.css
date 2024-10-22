@@ -1,0 +1,11 @@
+
+#entradas {
+    display: flexbox;
+}
+
+
+#entradas  div {
+    display: block;
+    margin-top: 20px;
+    width: 70%;
+}
