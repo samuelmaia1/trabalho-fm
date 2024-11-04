@@ -5,37 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio2</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
-<body style="padding: 20px;">
-    <h1 style="text-align: center; padding: 20px;">Análise de investimentos <br>com aportes periódicos</h1>
-    <hr>
-    <section id = "entradas">
-        <div class="entradas_secao">
-            <h2>Capital inicial (em reais):</h2>
-            <input>
+<body>
+    <div id="app">
+        <h1 class="text-center p-3">Análise de investimentos com aportes periódicos</h1>
+        <hr>
+        
+        <section id="entradas" class="entradas-container">
+            <div class="entradas_secao">
+                <h2>Capital inicial (em reais):</h2>
+                <input type="number" v-model.number="inputs.capitalInicial.value" placeholder="Ex: 1000" class="form-control">
+            </div>
+            <div class="entradas_secao">
+                <h2>Aporte periódico:</h2>
+                <input type="number" v-model.number="inputs.aporte.value" placeholder="Ex: 200" class="form-control">
+            </div>
+            <div class="entradas_secao">
+                <h2>Tempo de aplicação (em meses):</h2>
+                <input type="number" v-model.number="inputs.tempo.value" placeholder="Ex: 24" class="form-control">
+            </div>
+            <div class="entradas_secao">
+                <h2>Taxa de aplicação (dada em porcentagem):</h2>
+                <input type="number" v-model.number="inputs.taxaAplicacao.value" placeholder="Ex: 5" class="form-control">
+            </div>
+            <div class="entradas_secao">
+                <h2>Taxa estimada para o IPCA:</h2>
+                <input type="number" v-model.number="inputs.ipca.value" placeholder="Ex: 3" class="form-control">
+            </div>
+
+        </section>
+        <div style="text-align: center;">
+            <button @click="calcularInvestimento" class="btn btn-primary mt-3">Calcular</button>
         </div>
-        <div class="entradas_secao">
-            <h2>Aporte periódico:</h2>
-            <input>
+        
+
+        <div style="text-align: center;">
+            <canvas id="investmentChart" width="400" height="200" class="mt-3"></canvas>
+
         </div>
-        <div class="entradas_secao">
-            <h2>Tempo de aplicação:</h2>
-            <input>
-        </div>
-        <div class="entradas_secao">
-            <h2>Taxa de aplicação (dada em porcentagem):</h2>
-            <input>
-        </div>
-        <div class="entradas_secao">
-            <h2>Taxa estimada para o IPCA:</h2>
-            <input>
-        </div>
-       
-    </section>
-   
+        <section id="resultados" style="text-align: center; background-color: rgb(221, 217, 224); padding: 20px; margin-left: 100px; margin-right: 100px">
+            <h3>Resultados</h3>
+            <p>Montante final com taxa de aplicação: R$ {{ montanteFinalAplicacao }}</p>
+            <p>Montante final com IPCA: R$ {{ montanteFinalInflacao }}</p>
+            <p>Lucro final: R$ {{ lucroFinal }}</p>
+        </section>
+        <h3 style="text-align: center; font-size: 20px; padding: 20px;">Feito por: Maria Luiza Ribeiro</h3>
+    </div>
+    
 
 
     <script src="script.js"></script>
