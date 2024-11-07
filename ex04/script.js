@@ -2,6 +2,8 @@ const container = document.querySelector('.grafico')
 const context = container.getContext('2d')
 const form = document.querySelector('form')
 
+let grafico = null
+
 form.addEventListener('submit', (e) => {
     e.preventDefault()
     const aplicacao = document.querySelector('#capital').value 
@@ -12,6 +14,7 @@ form.addEventListener('submit', (e) => {
 })
 
 function gerarGrafico(aplicacao, taxa, ipca, tempo){
+    
     let valoresAplicacao = []
     let valoresIpca = []
     let aplicacaoAtual = aplicacao
@@ -35,8 +38,6 @@ function gerarGrafico(aplicacao, taxa, ipca, tempo){
         }
     }
 
-    console.log(cores)
-
     const inputResApp = document.querySelector('#aplicacao-final')
     inputResApp.innerText = `Montante final da aplicação: R$ ${valoresAplicacao[valoresAplicacao.length - 1]}`
     const inputResIpca = document.querySelector('#ipca-final')
@@ -54,8 +55,9 @@ function gerarGrafico(aplicacao, taxa, ipca, tempo){
         }
     }
 
+    if (grafico !== null) grafico.destroy()
 
-    const grafico = new Chart(context, {
+    grafico = new Chart(context, {
         type: 'line',
         data: {
             labels: partes,
