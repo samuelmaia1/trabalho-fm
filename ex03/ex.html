@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de tempo de ordenação</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="container">
+            <h1>Calculadora de tempo de ordenação</h1>
+            <form class="formulario">
+                <label>Volume de dados (megabytes)</label>
+                <input type="number" id="volumeDados">
+
+                <button onclick="Calcular(event)">Calcular</button>
+            </form>
+
+            <div id="resultados">
+                <h1>Características dos métodos</h1>
+                <div id="caracteristicas"></div>
+
+                <h2>Tempo de processamento</h2>
+                <div id="tempo"></div>
+
+                <h2>Gráfico</h2>
+            </div>
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
